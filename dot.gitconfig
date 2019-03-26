@@ -5,6 +5,12 @@
 [credential "https://github.com"]
     username = ashwin2802
 
+[url "git@github.com/"]
+    insteadOf = sh:
+
+[url "git@github.com/ashwin2802/"]
+    insteadOf = shh:
+
 [url "https://github.com/"]
     insteadOf = gh:
 
@@ -67,3 +73,5 @@
 
 [submodule]
     recurse=true
+[help]
+	autocorrect = 1
