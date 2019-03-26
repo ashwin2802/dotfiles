@@ -5,10 +5,10 @@
 [credential "https://github.com"]
     username = ashwin2802
 
-[url "https://github.com"]
+[url "https://github.com/"]
     insteadOf = gh:
 
-[url "https://github.com/ashwin2802"]
+[url "https://github.com/ashwin2802/"]
     insteadOf = h:
 
 [color]
