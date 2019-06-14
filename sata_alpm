@@ -1,4 +1,5 @@
 #!/bin/sh
+#Remove this line and place this file at /usr/lib/pm-utils/power.d/sata_alpm
 
 . "${PM_FUNCTIONS}"
 
