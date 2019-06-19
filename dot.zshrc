@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM='xterm-256color'
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/ashwin/.oh-my-zsh"
+export ZSH="/home/ashwin/.oh-my-zsh"
 
 #handle the accessibility bus error
 export NO_AT_BRIDGE=1
@@ -93,7 +93,7 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-#zsh_wifi_signal(){
+# zsh_wifi_signal(){
 #    local signal=$(nmcli device wifi | grep yes | awk '{print $8}')
 #    local color='%F{yellow}'
 #    [[ $signal -gt 75 ]] && color='%F{green}'
