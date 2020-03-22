@@ -20,10 +20,11 @@ Plug 'Quramy/tsuquyomi'
 Plug 'scrooloose/nerdtree',{'on':'NERDTreeToggle'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --bin'}
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'w0rp/ale'
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-fugitive'
+Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'mattn/emmet-vim'
@@ -107,15 +108,15 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+ nmap <silent> [c <Plug>(coc-diagnostic-prev)
+ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -145,20 +146,20 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+ autocmd!
+ "Setup formatexpr specified filetype(s).
+autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+ "Update signature help on jump placeholder
+ autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-" Remap for do codeAction of current line
+"Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
+"Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Use `:Format` to format current buffer
