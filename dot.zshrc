@@ -7,7 +7,7 @@ export ZSH="/home/ashwin/.oh-my-zsh"
 #handle the accessibility bus error
 export NO_AT_BRIDGE=1
 
-source /opt/ros/kinetic/setup.zsh
+source /opt/ros/melodic/setup.zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,7 +70,7 @@ ENABLE_CORRECTION="true"
 plugins=(vscode git ubuntu cake command-not-found common-aliases encode64 extract git-extras history last-working-dir pip python sudo web-search zsh-completions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.fonts/*.sh
+#source ~/.fonts/*.sh
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 # User configuration
@@ -113,8 +113,8 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
 #POWERLEVEL9K_BATTERY_STAGES=($'\u2581 ' $'\u2582 ' $'\u2583 ' $'\u2584 ' $'\u2585 ' $'\u2586 ' $'\u2587 ' $'\u2588 ')
 POWERLEVEL9K_BATTERY_ICON='\uf1e6 '
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="❱ "
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="❱ "
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}❱%F{cyan}❱%F{073}❱%F{109}❱%f "
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
@@ -162,6 +162,6 @@ export PROMPT_COMMAND="history -a; history -n"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/snap/bin:$PATH"
+
 source ~/ros_ws/devel/setup.zsh
-source ~/imav_ws/devel/setup.zsh
