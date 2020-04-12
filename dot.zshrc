@@ -162,6 +162,7 @@ export PROMPT_COMMAND="history -a; history -n"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/snap/bin:$PATH"
+export PATH="/usr/local/cuda-10.1/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/snap/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH"
 
 source ~/ros_ws/devel/setup.zsh
