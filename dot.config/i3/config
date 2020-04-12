@@ -105,6 +105,8 @@ bindsym $mod+b border toggle
 # sticky floating window
 bindsym $mod+y sticky toggle
 
+for_window [class="^.*"] border pixel 1
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -228,4 +230,3 @@ exec --no-startup-id nm-applet &
 exec --no-startup-id blueman-applet &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id dunst -b
-
