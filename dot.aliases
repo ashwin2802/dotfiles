@@ -22,3 +22,4 @@ alias map="roslaunch map_display map_disp.launch"
 alias ks="ls"
 alias aura="sudo rogauracore"
 alias pip3="sudo -H pip3"
+alias pip='pip2'

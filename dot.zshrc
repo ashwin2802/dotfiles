@@ -7,6 +7,8 @@ export ZSH="/home/ashwin/.oh-my-zsh"
 #handle the accessibility bus error
 export NO_AT_BRIDGE=1
 
+export EDITOR=code
+
 source /opt/ros/melodic/setup.zsh
 
 # Set name of the theme to load --- if set to "random", it will
@@ -166,3 +168,7 @@ export PATH="/usr/local/cuda-10.1/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/
 export LD_LIBRARY_PATH="/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH"
 
 source ~/ros_ws/devel/setup.zsh
+source ~/racing_ws/devel/setup.zsh
+source ~/ros_ws/src/Firmware/Tools/setup_gazebo.bash /home/ashwin/ros_ws/src/Firmware /home/ashwin/ros_ws/src/Firmware/build/px4_sitl_default > /dev/null
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/ashwin/ros_ws/src/Firmware
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/ashwin/ros_ws/src/Firmware/Tools/sitl_gazebo
