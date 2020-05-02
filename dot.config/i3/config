@@ -380,5 +380,5 @@ exec --no-startup-id blueman-applet &
 exec --no-startup-id redshift-gtk &
 exec killall notify-osd
 exec --no-startup-id dunst -b
-
+exec killall compton
 exec_always --no-startup-id "compton --config /home/ashwin/.config/compton/compton.conf -b"
