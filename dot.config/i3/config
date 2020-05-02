@@ -176,7 +176,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-set $bg-color 		 #2f343f
+set $bg-color 		 #2f343fcc
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
@@ -189,18 +189,16 @@ client.unfocused 	$inactive-bg-color  $inactive-bg-color $inactive-text-color 	#
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color 	#00ff00
 client.urgent 		$urgent-bg-color    $urgent-bg-color   $text-color 		#00ff00
 
-hide_edge_borders both
+#hide_edge_borders both
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    id bottom
-    position bottom
-    mode hide
-    hidden_state hide
-    font pango:Hack 9
+    id top
+    position top
+    font pango:Hack 8
     status_command /usr/local/bin/bumblebee-status \
-        -m pasink spotify traffic cpu memory disk:root battery datetime \
-        -p root.path=/ time.format="%H:%M:%S" date.format="%a, %b %d" \
+        -m pasink spotify traffic cpu memory disk:root battery date time spacer \
+        -p root.path=/home/ashwin time.format="%H:%M:%S" date.format="%a, %b %d" \
         -t iceberg-dark-powerline
 	colors {
 		background $bg-color
@@ -212,19 +210,19 @@ bar {
 }
 
 bar {
-    id top
-    position top
+    id bottom
+    position bottom
+    font pango:Hack 9
     mode hide
     hidden_state hide
-    font pango:Hack 9
     tray_output none
-    status_command /usr/local/bin/bumblebee-status -d \
+        status_command /usr/local/bin/bumblebee-status \
         -m pasource xrandr sensors cpu2 nvidiagpu nic redshift brightness dunst \
         -p cpu2.layout="cpu2.maxfreq cpu2.cpuload cpu2.coresload" \
         -t iceberg-dark-powerline
 	colors {
 		background $bg-color
-		separator #757575
+        separator #757575
 		focused_workspace $bg-color $bg-color $text-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
 		urgent_workspace $urgent-bg-color $urgent-bg-color $text-color
@@ -247,9 +245,10 @@ assign [class="whatsdesk"] $ws8
 popup_during_fullscreen leave_fullscreen
 workspace_auto_back_and_forth yes
 
-exec --no-startup-id feh --bg-scale ~/.files/dot.config/i3/wallpaper.jpg
+#exec --no-startup-id feh --bg-scale ~/.files/dot.config/i3/wallpapers/wall6.png
+exec --no-startup-id dwall -s firewatch &
 
-exec --no-startup-id compton -b
+exec --no-startup-id compton -b &
 
 exec --no-startup-id nm-applet &
 exec --no-startup-id blueman-applet &
