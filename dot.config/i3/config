@@ -309,12 +309,17 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
-# window colours
-# 		 	border		    background	       text	    		indicator
-client.focused	 	$bg-color 	    $bg-color 	       $text-color  		#00ff00
-client.unfocused 	$inactive-bg-color  $inactive-bg-color $inactive-text-color 	#00ff00
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color 	#00ff00
-client.urgent 		$urgent-bg-color    $urgent-bg-color   $text-color 		#00ff00
+set_from_resource $fg i3wm.color7 $text-color
+set_from_resource $bg i3wm.color2 $bg-color
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
 
 #hide_edge_borders both
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -373,7 +378,7 @@ assign [class="whatsdesk"] $ws8
 popup_during_fullscreen leave_fullscreen
 workspace_auto_back_and_forth yes
 
-exec --no-startup-id dwall -s room &
+exec wal -i "/home/ashwin/.files/dot.config/i3/wallpapers/wall8.jpg" &
 
 exec --no-startup-id nm-applet &
 exec --no-startup-id blueman-applet &

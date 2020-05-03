@@ -159,6 +159,7 @@ if [ -f ~/.aliases ]; then
 	. ~/.aliases
 fi
 
+(cat ~/.cache/wal/sequences &)
 export LSCOLORS=""
 export PROMPT_COMMAND="history -a; history -n"
 

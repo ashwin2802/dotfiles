@@ -39,6 +39,7 @@ Plug 'tpope/vim-tbone'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'dylanaraps/wal.vim'
 
 call plug#end()
 
@@ -190,7 +191,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 set t_Co=256
-colorscheme nord
+colorscheme wal
 set nowrap
 set number
 set laststatus=2
