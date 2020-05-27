@@ -7,7 +7,7 @@ export ZSH="/home/ashwin/.oh-my-zsh"
 #handle the accessibility bus error
 export NO_AT_BRIDGE=1
 
-export EDITOR=code
+export EDITOR=nvim
 
 source /opt/ros/melodic/setup.zsh
 
