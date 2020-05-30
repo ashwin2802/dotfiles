@@ -1,0 +1,2 @@
+# Place at /etc/initramfs-tools/conf.d and remove this line
+FRAMEBUFFER=y
