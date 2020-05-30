@@ -4,6 +4,8 @@ export TERM='xterm-256color'
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ashwin/.oh-my-zsh"
 
+chpwd() lsd
+
 #handle the accessibility bus error
 export NO_AT_BRIDGE=1
 
