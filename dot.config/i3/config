@@ -33,6 +33,9 @@ gaps inner 10
 
 smart_borders on
 
+# rounded corners
+border_radius 10
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -40,7 +43,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 2 -width 10 -auto-select -location 3 -font "SF Pro Text Semibold 12"
+bindsym $mod+d exec rofi -show run -lines 2 -width 10 -auto-select -location 3 -font "SF Pro Text Semibold 12" -xoffset -10 -yoffset 10
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -113,7 +116,7 @@ bindsym $mod+y sticky toggle
 bindsym $mod+c exec flameshot gui
 
 # kill compton
-bindsym $mod+n exec killall compton
+bindsym $mod+p exec killall compton
 
 # start compton
 bindsym $mod+t exec compton --config /home/ashwin/.config/compton/compton.conf -b
@@ -336,7 +339,7 @@ client.background       $bg
 bar {
     id bottom
     position bottom
-    font pango:Hack 9
+    font pango:JetBrainsMono 9
     status_command /usr/local/bin/bumblebee-status \
         -m pasink spotify traffic cpu memory disk:root battery date time spacer \
         -p root.path=/home/ashwin time.format="%H:%M:%S" date.format="%a, %b %d" \
@@ -353,7 +356,7 @@ bar {
 bar {
     id top
     position top
-    font pango:Hack 9
+    font pango:JetBrainsMono 9
     mode hide
     hidden_state hide
     height 14

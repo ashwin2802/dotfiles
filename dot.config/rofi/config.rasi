@@ -141,3 +141,6 @@
 }
 
 @import "/home/ashwin/.cache/wal/colors-rofi-dark.rasi"
+window {
+    border-radius: 20px;
+}
