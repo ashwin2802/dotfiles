@@ -50,10 +50,10 @@ bindsym $mod+d exec rofi -show run -lines 2 -width 10 -auto-select -location 3 -
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+# bindsym $mod+j focus left
+# bindsym $mod+k focus down
+# bindsym $mod+l focus up
+# bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -62,10 +62,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+# bindsym $mod+Shift+j move left
+# bindsym $mod+Shift+k move down
+# bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -115,12 +115,18 @@ bindsym $mod+y sticky toggle
 # flameshot for scrotting
 bindsym $mod+c exec flameshot gui
 
-# kill compton
-bindsym $mod+p exec killall compton
+# restart compton
+bindsym $mod+m exec killall compton && exec compton --config /home/ashwin/.config/compton/compton.conf -b
 
-# start compton
-bindsym $mod+t exec compton --config /home/ashwin/.config/compton/compton.conf -b
+# restart dunst
+bindsym $mod+t exec killall dunst && dunst -b &
 
+# GLava bindsyms
+bindsym $mod+k exec killall glava
+bindsym $mod+u exec glava --desktop --entry=rc.glsl &
+bindsym $mod+l exec glava --desktop --entry=rc-left.glsl & exec glava --desktop --entry=rc-right.glsl &
+
+# windows without borders
 for_window [class="^.*"] border pixel 0
 
 # Define names for default workspaces for which we configure key bindings later on.
@@ -400,8 +406,14 @@ exec --no-startup-id xrdb -merge ~/.cache/wal/rofi.xres &
 exec --no-startup-id nm-applet &
 exec --no-startup-id blueman-applet &
 exec --no-startup-id redshift-gtk &
+
 exec killall notify-osd
 exec --no-startup-id dunst -b &
+
 exec_always guake &
+exec_always glava --desktop --entry=rc.glsl &
+
+exec killall compton
 exec_always --no-startup-id "compton --config /home/ashwin/.config/compton/compton.conf -b"
+
 exec_always xfce4-power-manager
