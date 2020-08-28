@@ -1,6 +1,7 @@
 [user]
 	name = Ashwin Shenai 
     email = ashwins@iitk.ac.in
+	signingkey = 22B0A7D9B9615DB0
 
 [credential "https://github.com"]
     username = ashwin2802
@@ -76,3 +77,13 @@
 
 [help]
 	autocorrect = 1
+
+[clangFormat]
+	binary = clang-format-6.0
+[commit]
+	gpgsign = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
