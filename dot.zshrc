@@ -17,7 +17,7 @@ source /opt/ros/melodic/setup.zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -46,6 +46,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
+autoload -U colors && colors
+export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? [nyae] "
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -167,8 +169,15 @@ export PROMPT_COMMAND="history -a; history -n"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="/usr/local/cuda-10.1/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/snap/bin:$PATH"
-export LD_LIBRARY_PATH="/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH"
+# export PATH="/usr/local/cuda-10.1/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/snap/bin:$PATH"
+# export LD_LIBRARY_PATH="/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH"
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+function cws() { cd ~/$1_ws/src }
+function mws() { mkdir -p ~/$1_ws/src }
+function sws() { source ~/$1_ws/devel/setup.zsh }
+function ows() { code ~/$1_ws/src }
 
 source ~/ros_ws/devel/setup.zsh
 #source ~/racing_ws/devel/setup.zsh

@@ -174,3 +174,12 @@ Firefox rounded tabs - photon australis == copy paste into userChrome.css
 Setup clang-format-6.0
 Install ccache
 Install bat
+
+Setup work stuff
+---
+
+Install ROS
+sudo install python-catkin-tools
+Also gh config set git_protocol ssh for cli to clone by ssh
+Build RotorS, mav_control
+Install MATLAB + Simulink
