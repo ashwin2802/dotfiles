@@ -350,9 +350,10 @@ bar {
     position bottom
     font pango:JetBrainsMono Nerd Font Regular 9
     status_command /usr/local/bin/bumblebee-status \
-        -m pasource pasink sensors cpu2 nvidiagpu memory disk:root battery date time dunst spacer \
+        -m pasource pasink sensors cpu2 nvidiagpu memory disk:root battery datetime dunst \
         -p root.path=/home/ashwin time.format="%H:%M:%S" date.format="%a, %b %d"  \
-           cpu2.layout="cpu2.cpuload cpu2.coresload" \
+           cpu2.layout="cpu2.cpuload cpu2.coresload" nvidiagpu.format="GPU: {temp}°C, {mem_used} MiB" \
+           memory.format="{used} ({percent:04.02f}%)" disk.format="{used} ({percent:04.02f}%)" \
         -t iceberg-dark-powerline
 	colors {
 		background $bg-color
