@@ -17,14 +17,12 @@ alias openvino="source /opt/intel/openvino/bin/setupvars.sh"
 alias sshrkey="ssh-keygen -f \"/home/ashwin/.ssh/known_hosts\" -R "
 alias scan="nmap -sP $(echo $(hostname -I)/24 | tr -d \"\ \")"
 alias sscan="sudo nmap -sP $(echo $(hostname -I)/24 | tr -d \"\ \")"
-alias unity-control-center="XDG_CURRENT_DESKTOP=Unity unity-control-center"
+alias unity-control-center="env XDG_CURRENT_DESKTOP=Unity unity-control-center"
 alias masdis="roslaunch master_discovery_fkie master_discovery.launch"
 alias massyn="roslaunch master_sync_fkie master_sync.launch"
 alias map="roslaunch map_display map_disp.launch"
 alias ks="ls"
 alias aura="sudo rogauracore"
-alias pip3="sudo -H pip3"
-alias pip='pip2'
 alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'

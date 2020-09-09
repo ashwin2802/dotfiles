@@ -1,0 +1,185 @@
+Ricing a fresh 18.04 Install
+Last followed on 08 Sep 2020
+
+Firstly update and upgrade
+---
+
+sudo apt-get update
+sudo apt-get upgrade
+
+:: Threw a warning ::
+
+W: Possible missing firmware /lib/firmware/rtl_nic/rtl8125a-3.fw for module r8169
+W: Possible missing firmware /lib/firmware/rtl_nic/rtl8168fp-3.fw for module r8169
+
+Next setup git, code, clone dotfiles
+---
+
+sudo apt install git
+sudo snap install code --classic
+git clone https://github.com/ashwin2802/dotfiles
+
+Setup git config by symlinking. Comment out GPG signing for now.
+
+Install i3
+---
+/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2020.02.03_all.deb keyring.deb SHA256:c5dd35231930e3c8d6a9d9539c846023fe1a08e4b073ef0d2833acd815d80d48
+sudo dpkg -i ./keyring.deb
+sudo echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
+sudo apt update
+sudo apt install i3
+
+Sign in to Firefox.
+Reboot and startup i3.
+------
+
+Partially setup i3.
+---
+
+Symlink i3 config folder. 
+Comment out 31-37 in config - gaps and rounded corners. 
+Remove the height line in one of the status bars.
+
+Install deps and configure them:
+
+sudo apt install rofi feh mpv redshift-gtk guake xfce4-power-manager xbacklight
+## Symlink rofi, redshift
+
+sudo apt install python3-pip
+sudo -H pip3 install pywal
+XX sudo -H pip3 install bumblebee-status XX breaks instead use
+pip install --user --force-reinstall bumblebee-status==1.10.4
+
+Symlink dunst.
+
+Comment out compton 
+
+Deps for later, need from source: playerctl, resloved i3 fork, tryone144 compton fork
+
+Setup p10k.
+---
+
+Install oh-my-zsh
+
+sudo apt install curl zsh
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+Symlink config. Install additional plugins
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+autoload -U compinit && compinit
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+Comment out ROS for now.
+TODOS: CUDA 10.1, ROS
+
+Install fonts.
+---
+
+SF and JetBrains Mono. With NerdFont patch.
+Download patched font, move to ~/.fonts and run
+sudo fc-cache -f -v
+
+For SF need to patch it manually.
+
+Make zsh default shell. Setup aliases.
+sudo chsh -i /bin/zsh $(whoami)
+Logout and login.
+------
+
+Configure wallpaper.
+Run wal.
+
+XX~~ sudo snap install lsd ~~XX Get it from repo.
+sudo add-apt-repository ppa:fontforge/fontforge
+sudo apt-get install python-fontforge python-configparser
+Get patcher script from NerdFonts
+
+sudo apt install gnome-tweaks lxappearance
+Install oomox. Generate xresources-reverse and export. Apply with lxappearance
+Moka icons. Apply with lxappearance. Symlink gtk config.
+
+Install some more stuff
+---
+
+sudo apt install neovim tmux ddgr nmap
+
+Setup neovim. Download appimage from repo, apt is outdated.
+
+TODO: rogauracore, ccache
+---
+
+Github: Setup SSH and GPG now. Uncomment GPG block in gitconfig
+Install Github CLI
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+sudo apt-add-repository -u https://cli.github.com/packages
+sudo apt install gh
+
+Get tryone144/compton and personal i3 fork: I use source builds
+Not using picom rn since it breaks
+build i3-gaps and uncomment the gaps and corners lines in config
+add height field back in status bar
+Symlink compton after build - check deps first
+
+Setup Guake
+Fixup status bar
+sudo apt install blueman
+pip3 install i3ipc - for tiler
+
+TODO - try polybar
+
+Compton acts up without gpu drivers
+---
+
+Install nvidia-driver-440
+Copy sata_alpm and tlp to right locations
+sudo apt install tlp
+Copy crontab
+Reboot to load driver
+
+TODO : shutdown menu, CUDA toolkit
+------
+
+Need dunst source build for rounded corners. install libxss
+Remove apt dunst after source build
+
+pip3 install pywalfox
+pywalfox update
+Restart Firefox and apply theme
+Install flameshot, rogauracore
+
+Install VSCode extensions
+---
+
+C/C++
+Bracket Pair Colorizer 2
+Github PR
+XML
+ROS
+Python
+LiveShare Ext Pack
+Git Graph
+ROS snippets
+XML tools
+1984
+vscode-icons
+
+---
+Opt: glava
+ 
+Install shadowfox - store binary in /usr/bin
+Firefox rounded tabs - photon australis == copy paste into userChrome.css
+Setup clang-format-6.0
+Install ccache
+Install bat
+
+Setup work stuff
+---
+
+Install ROS
+sudo install python-catkin-tools
+Also gh config set git_protocol ssh for cli to clone by ssh
+Build RotorS, mav_control
+Install MATLAB + Simulink
