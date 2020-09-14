@@ -7,6 +7,8 @@ alias vimdiff="nvim -d"
 alias saug="sudo apt-get upgrade"
 alias sarp="sudo apt-get remove --purge"
 alias saur="sudo apt autoremove"
+alias spi3="sudo -H pip3 install"
+alias spu3="sudo -H pip3 uninstall"
 alias cls="clear"
 alias down="cd ~/Downloads"
 alias ..="cd .."
@@ -33,3 +35,5 @@ alias calc='bc <<< '
 alias vpn='cd /home/ashwin/Downloads/forticlientsslvpn >> /dev/null && ./fortisslvpn.sh & popd >> /dev/null'
 alias px4='source ~/ros_ws/src/ariitk_firmware/Tools/setup_gazebo.bash /home/ashwin/ros_ws/src/ariitk_firmware /home/ashwin/ros_ws/src/ariitk_firmware/build/px4_sitl_default > /dev/null && export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/ashwin/ros_ws/src/ariitk_firmware && export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/ashwin/ros_ws/src/ariitk_firmware/Tools/sitl_gazebo'
 alias cb='catkin build'
+alias cbnd='catkin build --no-deps'
+alias cbwf='catkin build --continue-on-fail'

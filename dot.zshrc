@@ -9,6 +9,8 @@ chpwd() lsd
 #handle the accessibility bus error
 export NO_AT_BRIDGE=1
 
+unsetopt nomatch
+
 export EDITOR=nvim
 
 source /opt/ros/melodic/setup.zsh
