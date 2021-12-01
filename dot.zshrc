@@ -182,6 +182,12 @@ function sws() { source ~/$1_ws/devel/setup.zsh }
 function ows() { code ~/$1_ws/src }
 
 source ~/ros_ws/devel/setup.zsh
+# export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/ashwin/drdo_ws/src/ardupilot_gazebo/models
+export PATH=$PATH:/usr/local/cuda-11.0/bin
+# export PATH=$PATH:$HOME/drdo_ws/src/ardupilot/Tools/autotest
+export PATH=/usr/lib/ccache:$PATH
+# export PATH=/opt/gcc-arm-none-eabi-6-2017-q2-update/bin:$PATH
+
 #source ~/racing_ws/devel/setup.zsh
 #source ~/ros_ws/src/Firmware/Tools/setup_gazebo.bash /home/ashwin/ros_ws/src/Firmware /home/ashwin/ros_ws/src/Firmware/build/px4_sitl_default > /dev/null
 #export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/ashwin/ros_ws/src/Firmware
